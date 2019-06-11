@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomBlockComponent implements OnInit {
 
-  blockTitle = `This is a customer element created!`;
+  blockTitle = `This is a new-custom element created!`;
   constructor() { }
 
   ngOnInit() {
