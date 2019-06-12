@@ -1,4 +1,5 @@
 import { Component, OnInit, NgModule } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-custom-block',
@@ -30,36 +31,22 @@ export class CustomBlockComponent implements OnInit {
   employeeDetails: String;
   textVal: String;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.blockTitle = `This is a new-custom element created!`;
-    this.employees = [
-      {
-        name: 'Vignesh Durairaj', 
-        shortName: 'Vikhi',
-        almaMater: 'Anna University, Chennai',
-        gender: 'M'
-      }, {
-        name: 'Durairaj Subramaniam', 
-        shortName: 'Durai', 
-        almaMater: 'Madurai Kamarajar University, Madurai', 
-        gender: 'M'
-      }, {
-        name: 'Shantha Kumari Durairaj', 
-        shortName: 'Chitra', 
-        almaMater: 'Bharathiar University, Coimbatore', 
-        gender: 'F'
-      } 
-    ];
-   }
+  }
 
-   showEmployee(employee) {
+  showEmployee(employee) {
     this.employeeDetails = `Employee : ${employee.name}, who is also known to be ${employee.shortName} has been graduated from "${employee.almaMater}"`;
-   }
+  }
 
-   clear() {
-     this.employeeDetails = '';
-   }
-  ngOnInit() {
+  clear() {
+    this.employeeDetails = '';
+  }
+
+  ngOnInit(): void {
+    this.http.get<Object>('./assets/data/employees.json').subscribe (
+      data => {this.employees = data}
+    );
   }
 
 }
