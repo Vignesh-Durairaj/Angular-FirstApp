@@ -1,10 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-custom-block',
   template: `
     <div (click)=clear()>
     <h2>Hello. {{ blockTitle }}</h2>
+    <br />
+    Enter a text here : <input type='text' [(ngModel)]='textVal' /><br />
+    The value is : {{ textVal }} <br />
+    <br />
     <ul>
       <li 
         *ngFor = "let emp of employees" 
@@ -18,11 +22,13 @@ import { Component, OnInit } from '@angular/core';
   `, 
   styleUrls: ['./custom-block.component.css']
 })
+
 export class CustomBlockComponent implements OnInit {
 
   blockTitle: String;
   employees: object;
   employeeDetails: String;
+  textVal: String;
 
   constructor() {
     this.blockTitle = `This is a new-custom element created!`;
