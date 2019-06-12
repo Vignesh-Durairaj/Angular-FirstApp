@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
     <h2>Hello. {{ blockTitle }}</h2>
     <br />
     Enter a text here : <input type='text' [(ngModel)]='textVal' /><br />
-    The value is : {{ textVal }} <br />
+    <div *ngIf=textVal>The value is : {{ textVal }}</div><br />
     <br />
     <ul>
       <li 
