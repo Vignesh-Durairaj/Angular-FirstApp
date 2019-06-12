@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomBlockComponent } from './custom-block/custom-block.component';
+import { SearchEmployeePipe } from './search-employee.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomBlockComponent
+    CustomBlockComponent,
+    SearchEmployeePipe
   ],
   imports: [
     BrowserModule,

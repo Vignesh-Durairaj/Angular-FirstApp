@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
     <br />
     <ul>
       <li 
-        *ngFor = "let emp of employees" 
+        *ngFor = "let emp of (employees | searchEmployee: textVal)"
         (mouseover) = showEmployee(emp)
         [style.backgroundColor] = "emp.gender === 'M' ? '#90E4F9' : '#EFB6E6'">
         {{ emp.name }}<{{ emp.shortName }}> -- {{ emp.almaMater }}
