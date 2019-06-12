@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
     <div (click)=clear()>
     <h2>Hello. {{ blockTitle }}</h2>
     <ul>
-      <li *ngFor="let emp of employees" (mouseover)=showEmployee(emp)>
+      <li 
+        *ngFor = "let emp of employees" 
+        (mouseover) = showEmployee(emp)
+        [style.backgroundColor] = "emp.gender === 'M' ? '#90E4F9' : '#EFB6E6'">
         {{ emp.name }}<{{ emp.shortName }}> -- {{ emp.almaMater }}
       </li>
     </ul>
@@ -27,15 +30,18 @@ export class CustomBlockComponent implements OnInit {
       {
         name: 'Vignesh Durairaj', 
         shortName: 'Vikhi',
-        almaMater: 'Anna University, Chennai'
+        almaMater: 'Anna University, Chennai',
+        gender: 'M'
       }, {
         name: 'Durairaj Subramaniam', 
         shortName: 'Durai', 
-        almaMater: 'Madurai Kamarajar University, Madurai'
+        almaMater: 'Madurai Kamarajar University, Madurai', 
+        gender: 'M'
       }, {
         name: 'Shantha Kumari Durairaj', 
         shortName: 'Chitra', 
-        almaMater: 'Bharathiar University, Coimbatore'
+        almaMater: 'Bharathiar University, Coimbatore', 
+        gender: 'F'
       } 
     ];
    }
